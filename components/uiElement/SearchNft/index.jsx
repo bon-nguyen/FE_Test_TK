@@ -7,16 +7,15 @@ const SearchNft = () => {
   const [searchByField, setSearchByField] = useState("Name");
   const [isDropdownSearch, setIsDropdownSearch] = useState(false);
   const [dataNftFree, setDataNftFree] = useState([]);
-  console.log("dataNftFree", dataNftFree);
   useEffect(() => {
     searchApi(searchByField, keyword).then((res) => setDataNftFree(res));
   }, [keyword, searchByField]);
 
   return (
     <>
-      <div class="flex relative">
+      <div className="flex relative">
         <div>
-          <label class="mb-2 text-sm font-medium text-gray-900 sr-only ">
+          <label className="mb-2 text-sm font-medium text-gray-900 sr-only ">
             Your Email
           </label>
           <button
@@ -33,17 +32,17 @@ const SearchNft = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
         </div>
         {isDropDown ? (
-          <div class="z-10 absolute left-0 bottom-[-80px] bg-white divide-y divide-gray-100 rounded shadow w-44 ">
+          <div className="z-10 absolute left-0 bottom-[-80px] bg-white divide-y divide-gray-100 rounded shadow w-44 ">
             <ul
-              class="py-1 text-sm text-gray-700 "
+              className="py-1 text-sm text-gray-700 "
               aria-labelledby="dropdown-button"
             >
               <li
@@ -62,7 +61,7 @@ const SearchNft = () => {
                   setIsDropDown(false);
                 }}
               >
-                <a href="#" class="block px-4 py-2">
+                <a href="#" className="block px-4 py-2">
                   Symbol
                 </a>
               </li>
@@ -72,7 +71,7 @@ const SearchNft = () => {
           ""
         )}
 
-        <div class="relative w-full">
+        <div className="relative w-full">
           <input
             type="search"
             className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
@@ -84,20 +83,20 @@ const SearchNft = () => {
           />
           <button
             type="submit"
-            class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
           >
             <svg
               aria-hidden="true"
-              class="w-5 h-5"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               ></path>
             </svg>
@@ -116,13 +115,13 @@ const SearchNft = () => {
                       <div className="flex items-center gap-x-4 ">
                         <div class="basis-[20px]">
                           <img
-                            class="w-[20px] h-[20px]"
+                            className="w-[20px] h-[20px]"
                             src={item.ImageUrl}
                             alt={item.Name}
                           />
                         </div>
                         <div>
-                          <h3 class="capitalize text-[#0F172A] text-[0.9375rem] font-medium ">
+                          <h3 className="capitalize text-[#0F172A] text-[0.9375rem] font-medium ">
                             {item.Name}
                             <span className="font-normal text-[#64748B] uppercase ml-1.5">
                               {item.Symbol}

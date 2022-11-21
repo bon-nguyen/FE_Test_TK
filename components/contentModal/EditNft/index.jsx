@@ -8,25 +8,42 @@ import Select from "react-select";
 
 const EditNft = ({ item, onChange }) => {
   const [itemNews, setItemNews] = useState({ ...item });
-  console.log("itemNews ===", itemNews);
+  const { BlockChains } = item;
+
 
   const onChangeSelectGenre = (e) => {
-    setItemNews({...itemNews, Genres: [e.map(({value, label}) => ({
+    setItemNews({
+      ...itemNews,
+      Genres: e.map(({ value, label }) => ({
         Code: value,
         Name: label,
-    }))]})
+      })),
+    });
   };
   const onChangeSelectBlockchain = (e) => {
-    setItemNews({...itemNews, BlockChains: [e.map(({value, label}) => ({
-        Code: value,
-        Name: label,
-    }))]})
+    console.log("e", e)
+    setItemNews({
+      ...itemNews,
+      BlockChains: e.map(({ value, label }) => {
+        const resultIndex = BlockChains.findIndex((x) => x.Code === value);
+        console.log("Go Go GO",BlockChains[resultIndex]?.ExtendValue)
+        
+        return {
+            Code: value,
+            Name: label,
+            ExtendValue: resultIndex ? BlockChains[resultIndex]?.ExtendValue  : 'https://via.placeholder.com/40x40'
+        }
+      }),
+    });
   };
-  const onChangeSelectPlatform= (e) => {
-    setItemNews({...itemNews, Platforms: [e.map(({value, label}) => ({
+  const onChangeSelectPlatform = (e) => {
+    setItemNews({
+      ...itemNews,
+      Platforms: e.map(({ value, label }) => ({
         Code: value,
         Name: label,
-    }))]})
+      })),
+    });
   };
 
   return (
@@ -172,7 +189,7 @@ const EditNft = ({ item, onChange }) => {
       <button
         type="button"
         className=" border bg-gradient-to-r from-[#D71C5D] to-[#FF9017] hover:from-[#D71C5D]/90 hover:to-[#FF9017]/90 focus:outline-none text-[#fff] focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-        onClick={()=>onChange(itemNews)}
+        onClick={() => onChange(itemNews)}
       >
         <svg
           className="mr-1"

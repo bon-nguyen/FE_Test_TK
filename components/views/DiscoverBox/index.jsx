@@ -164,7 +164,7 @@ const renderIconPlatformByCode = (code) => {
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Light tooltip
+            Error edit
           </button>
           <div
             id="tooltip-light"
@@ -369,7 +369,7 @@ const DiscoverBox = () => {
       return
     }else{
       editNft(indexOfInJson, item)
-      getNFT(pagination.page - 1, pagination.perPage).then((data) => {
+      getNFT(((pagination.page - 1) * pagination.perPage ), (pagination.perPage * pagination.page)).then((data) => {
         setDataNftFree(data);
       })
       alert("Edit NFt success");
@@ -379,9 +379,10 @@ const DiscoverBox = () => {
   };
 
 
+  console.log("pagination", pagination);
 
   useEffect(() => {
-    getNFT(pagination.page - 1, pagination.perPage).then((data) => {
+    getNFT(((pagination.page - 1) * pagination.perPage ), (pagination.perPage * pagination.page)).then((data) => {
       setDataNftFree(data);
     })
 
@@ -436,7 +437,7 @@ const DiscoverBox = () => {
           <div className="flex items-center justify-between  mt-6">
             <div className="flex-1 text-[#64748B] text-[0.9375rem]">
               Showing {(pagination.page - 1) * pagination.perPage + 1} -{" "}
-              {pagination.perPage * pagination.page} out of{" "}
+              {pagination.perPage * pagination.page} out of
               {pagination.totalRow}
             </div>
             <div className="flex-1">
