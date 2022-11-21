@@ -17,8 +17,8 @@ const Breadcrumb = () => {
           <path
             d="M1 9L5 5L1 1"
             stroke="#334155"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </li>
@@ -36,8 +36,8 @@ const Breadcrumb = () => {
           <path
             d="M1 9L5 5L1 1"
             stroke="#334155"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </li>

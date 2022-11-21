@@ -1,4 +1,4 @@
-[
+export default [
     {
       "Code": "the-sandbox",
       "Name": "The Sandbox",
